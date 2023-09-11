@@ -12,16 +12,18 @@
 <body>
   <nav><h1>Book Library</h1></nav>
   <main>
-    <button id="addBookButton">+ Add Book</button>
+    <div id="overlay"></div>
+    <div class="addBookContainer"><button id="addBookButton">+ Add Book</button></div>
+    <div class="books"></div>
     <div class="formContainer">
-      <form action="">
+      <form>
         <p>Add new book</p>
-        <input type="text" name="title" id="title">
-        <input type="text" name="author" id="author">
-        <input type="number" name="pages" id="pages">
+        <input type="text" name="title" id="title" required>
+        <input type="text" name="author" id="author" required>
+        <input type="number" name="pages" id="pages" required>
         <label for="readStatus">Have you read this book?</label>
         <input type="checkbox" name="readStatus" id="readStatus">
-        <button>Submit</button>
+        <button type="button" id="submit">Submit</button>
       </form>
     </div>
   </main>
