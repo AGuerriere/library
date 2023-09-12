@@ -6,7 +6,7 @@
 body {
   background-color: rgb(229, 229, 229);
   padding:0;
-  margin:0
+  margin:0;
 }
 nav {
   height: 100px;
@@ -25,16 +25,18 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height:90vh;
 }
 
 #addBookButton {
   height: 50px;
   width: 150px;
-  background-color: pink;
+  background-color: rgb(253, 127, 243);
   border: 0;
   border-radius: 4px;
   margin: 30px;
   font-size: 1.2rem;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 form {
@@ -68,6 +70,11 @@ form {
   background-color: azure;
   border-radius: 7px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+  padding-bottom: 20px;
+}
+
+p {
+  text-align: center;
 }
 
 input:not(#readStatus) {
@@ -78,6 +85,10 @@ input:not(#readStatus) {
 #readStatus {
   width: 20px;
   height: 20px;
+}
+
+#submit {
+  margin-top: 10px;
 }
 
 label {
@@ -94,6 +105,7 @@ label {
 .books {
   display: flex;
   justify-content: left;
+  flex-wrap: wrap;
   width: 100vw;
 }
 
@@ -103,9 +115,21 @@ label {
   justify-content: center;
   align-items: center;
   background-color: white;
-  height: 300px;
-  width: 200px;
+  height: 400px;
+  width: 300px;
   margin: 20px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.bookItem p {
+  background-color: bisque;
+  width: 250px;
+  height: 60px;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .bookRead {
@@ -121,6 +145,7 @@ label {
   height: 35px;
   width: 80px;
   border-radius: 5px;
+  margin: 10px;
 }
 
 #overlay {
@@ -135,6 +160,17 @@ label {
   background-color: rgba(0,0,0,0.5);
   z-index: 2;
   cursor: pointer;
+}
+
+.deleteButton {
+  border: none;
+  height: 35px;
+  width: 80px;
+  border-radius: 5px;
+}
+
+footer {
+  text-align: center;
 }
 
 @keyframes createBox {

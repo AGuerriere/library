@@ -18,16 +18,19 @@
     <div class="formContainer">
       <form>
         <p>Add new book</p>
+        <label for="title">Title</label>
         <input type="text" name="title" id="title" required>
+        <label for="author">Author</label>
         <input type="text" name="author" id="author" required>
+        <label for="pages">Pages</label>
         <input type="number" name="pages" id="pages" required>
         <label for="readStatus">Have you read this book?</label>
         <input type="checkbox" name="readStatus" id="readStatus">
-        <button type="button" id="submit">Submit</button>
+        <button type="submit" id="submit" onsubmit="submit(event)">Submit</button>
       </form>
     </div>
   </main>
-
+  <footer>Created by Antonio Guerriere ⚡️ 2023</footer>
   <script src="main.js"></script>
 </body>
 </html>
