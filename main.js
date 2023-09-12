@@ -12,9 +12,9 @@ const books = document.querySelector(".books");
 // Sample book data
 const myLibrary = [
   {
-    "title": "Harry Potter and The Philosopher Stone",
-    "author": "JK Rowling",
-    "pages": "223",
+    "title": "Life 3.0",
+    "author": "Max Tegmark",
+    "pages": "384",
     "readStatus": true
   },
   {
