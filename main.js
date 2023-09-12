@@ -9,27 +9,34 @@ const readStatusCheckBox = document.getElementById("readStatus");
 const submitButton = document.getElementById("submit");
 const books = document.querySelector(".books");
 
+var myLibrary
+
 // Sample book data
-const myLibrary = [
-  {
-    "title": "Life 3.0",
-    "author": "Max Tegmark",
-    "pages": "384",
-    "readStatus": true
-  },
-  {
-    "title": "21 Lessons for the 21st Century",
-    "author": "Yuval Noah Harari",
-    "pages": "416",
-    "readStatus": false
-  },
-  {
-    "title": "Casino Royale",
-    "author": "Ian Fleming",
-    "pages": "224",
-    "readStatus": true
-  }
-];
+if (localStorage.getItem('data') === null) {
+    myLibrary = [
+    {
+      "title": "Life 3.0",
+      "author": "Max Tegmark",
+      "pages": "384",
+      "readStatus": true
+    },
+    {
+      "title": "21 Lessons for the 21st Century",
+      "author": "Yuval Noah Harari",
+      "pages": "416",
+      "readStatus": false
+    },
+    {
+      "title": "Casino Royale",
+      "author": "Ian Fleming",
+      "pages": "224",
+      "readStatus": true
+    }
+  ];
+  localStorage.setItem('data', JSON.stringify(myLibrary));
+} else {
+  var myLibrary = JSON.parse(localStorage.getItem('data'));
+}
 
 // Book constructor
 function Book(title, author, pages, readStatus) {
@@ -48,6 +55,7 @@ function updateLibrary() {
   });
 
   // Recreate the library display based on the myLibrary array
+  myLibrary = JSON.parse(localStorage.getItem('data'));
   for (const element of myLibrary) {
     let bookItem = document.createElement("div");
     bookItem.classList = "bookItem";
@@ -92,6 +100,7 @@ function updateLibrary() {
       const index = myLibrary.indexOf(element);
       if (index > -1) {
         myLibrary.splice(index, 1);
+        localStorage.setItem('data', JSON.stringify(myLibrary));
       }
       bookItem.remove();
     });
@@ -101,6 +110,7 @@ function updateLibrary() {
 // Function to add a new book to the library
 function addBookToLibrary(bookTitle) {
   myLibrary.push(new Book(newBook.value, newAuthor.value, newPageNumber.value, readStatusCheckBox.checked));
+  localStorage.setItem('data', JSON.stringify(myLibrary));
 }
 
 
@@ -113,8 +123,13 @@ addBookButton.addEventListener("click", () => {
     overlay.style.display = "none";
     newBookFormContainer.classList.remove("active");
   });
-
-  document.querySelector(".warning").remove()
+  // Get the element
+  const warningElement = document.querySelector(".warning");
+  // Check if the element is not null
+  if(warningElement !== null) {
+    // Remove the element
+    warningElement.remove();
+  }
 });
 
 submitButton.addEventListener("click", (e) =>  {
