@@ -44,7 +44,7 @@ form {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  height: 100%;
+  height: 90%;
 }
 
 #submit {
@@ -171,6 +171,10 @@ label {
 
 footer {
   text-align: center;
+}
+
+.warning {
+  color: red
 }
 
 @keyframes createBox {

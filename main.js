@@ -103,6 +103,7 @@ function addBookToLibrary(bookTitle) {
   myLibrary.push(new Book(newBook.value, newAuthor.value, newPageNumber.value, readStatusCheckBox.checked));
 }
 
+
 // Event listeners
 addBookButton.addEventListener("click", () => {
   newBookFormContainer.classList.toggle("active");
@@ -112,20 +113,27 @@ addBookButton.addEventListener("click", () => {
     overlay.style.display = "none";
     newBookFormContainer.classList.remove("active");
   });
+
+  document.querySelector(".warning").remove()
 });
 
 submitButton.addEventListener("click", (e) =>  {
-  if (!newBook.value && !newAuthor.value && !newPageNumber.value) {
-    const warning = document.createElement("p")
-    warning.classList.add("warning")
-    warning.innerText = "‼Complete all fields"
-    return
+  if (!newBook.value || !newAuthor.value || !newPageNumber.value) {
+    if (!document.body.contains(document.querySelector(".warning"))) {
+      const warning = document.createElement("p");
+      warning.classList.add("warning");
+      warning.innerText = "‼ Complete all fields";
+      newBookFormContainer.append(warning);
+      
+    }
+  } else {
+    addBookToLibrary(newBook.value);
+    newBookFormContainer.classList.toggle("active");
+    updateLibrary(); // Update the library display
+    overlay.style.display = "none";
+    newBookForm.reset();
   }
-  addBookToLibrary(newBook.value);
-  newBookFormContainer.classList.toggle("active");
-  updateLibrary(); // Update the library display
-  overlay.style.display = "none";
-  newBookForm.reset();
+
 });
 
 // Initial library display update
