@@ -174,7 +174,19 @@ footer {
 }
 
 .warning {
-  color: red
+  color: rgb(216, 0, 0)
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+.bookRead:hover {
+  background-color: rgb(147, 245, 0);
+}
+
+.bookNotRead:hover {
+  background-color: rgb(255, 20, 20);;
 }
 
 @keyframes createBox {
