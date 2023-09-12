@@ -181,3 +181,15 @@ footer {
     transform: scale(1);
   }
 } 
+
+@media only screen and (max-width: 1200px) {
+  .books, nav {
+    display: flex;
+    justify-content: center;
+  }
+
+  h1 {
+    margin: 0;
+  }
+
+}
