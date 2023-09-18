@@ -12,6 +12,7 @@ const books = document.querySelector(".books");
 var myLibrary
 
 // Sample book data
+// if there's already data saved in localstorage, use that, otherwise use the sample data
 if (localStorage.getItem('data') === null) {
     myLibrary = [
     {
@@ -39,11 +40,13 @@ if (localStorage.getItem('data') === null) {
 }
 
 // Book constructor
-function Book(title, author, pages, readStatus) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.readStatus = readStatus;
+class Book {
+  constructor(title, author, pages, readStatus) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.readStatus = readStatus;
+  }
 }
 
 // Function to update the library display
